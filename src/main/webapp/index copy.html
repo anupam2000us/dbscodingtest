@@ -1,0 +1,138 @@
+<html>
+<head>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" type="text/javascript"></script>
+	<script src="scripts/restUtil.js" type="text/javascript"></script>
+</head>
+<body>
+	<style>
+		.text-input {
+			width: 80%;
+			height: 24px;
+			line-height: 24px;
+		}
+
+		.search-container {
+			width: 45%;
+			border: 1px solid #d3d3d3;
+			height: 500px;
+			padding: 15px;
+		}
+
+		.result-container {
+			margin-top: 20px;
+			padding: 15px;
+			border: 1px solid #d3d3d3;
+		}
+
+		.parent-search-container {
+			width: 100%;
+			padding: 20px;
+
+		}
+
+		.btn-search {
+			margin-left: 10px;
+		}
+
+		.file, .folder, .file-details, .file-permission {
+			width: 100%;
+		}
+
+		.file-name, .folder-name {
+			width: 70%;
+			float: left;
+			margin-bottom: 5px;;
+			line-height: 24px;
+			padding: 0px 5px;
+		}
+
+		.folder-name {
+			background-color: #FBFBA2;
+			border: 1px solid #BDBD2E;
+		}
+
+		.file-size {
+			width: 20%;
+			text-align: right;
+			float:right;
+		}
+		.file-path {
+			width: 100%;
+			word-break: break-all;
+			display: -webkit-box;
+			-webkit-line-clamp: 1;
+			-webkit-box-orient: vertical;  
+			overflow: hidden;
+			margin-bottom: 10px;;
+		}
+
+
+	</style>
+    <!--<h2>Jersey RESTful Web Application!</h2>
+    
+    <p>Visit <a href="http://jersey.java.net">Project Jersey website</a>
+    for more information on Jersey! -->
+    
+    
+    <div class="parent-search-container">
+		<div id="fileSearchContainer" class="search-container" style="margin-right: 20px; float: left;">
+			<input type="text" class="text-input" id="searchFile" placeholder="Enter file name" />
+			<button id="searchBtn" class="btn-search" onclick="onGetFileDetailsClick()">Find Files</button>
+			<div id="searchResultContainer" class="result-container">
+				<div id="noResultsDiv" style="text-align: center; padding-top: 20px;">No File Details</div>
+				<div id="resultData">
+					<div class="file">	
+						<div class="file-details">
+							<div class="file-name">
+								<a href="#">Some File</a>
+							</div>
+							<div class="file-size">360.24 MB</div>
+						</div>
+						<div class="file-permission"></div>
+						<div class="file-path">
+							/Users/avishek.dey/Documents/Development Personal/DBS/dbscodingtest/src/main/webapp
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    	<div id="dirSearchContainer" class="search-container" style="float:right;" >
+    		<input type="text" class="text-input" id="searchDir" placeholder="Enter folder name" />
+			<button id="searchBtn" class="btn-search" onclick="onGetFilesClick()">Find Files</button>
+			<div id="directorySearchResultContainer" class="result-container">
+				<div id="noFolderResultsDiv" style="text-align: center; padding-top: 20px;">No Files</div>
+				<div id="folderResultData">
+					<div class="file">	
+						<div class="file-details">
+							<div class="file-name">
+								<a href="#">Some File</a>
+							</div>
+							<div class="file-size">360.24 MB</div>
+						</div>
+						<div class="file-path">
+							/Users/avishek.dey/Documents/Development Personal/DBS/dbscodingtest/src/main/webapp
+						</div>
+					</div>
+					<div class="folder">
+						<div class="file-details">
+							<div class="folder-name">
+								<a href="#">Some File</a>
+							</div>
+							<div class="file-size">360.24 MB</div>
+						</div>
+						<div class="file-path" title="/Users/avishek.dey/Documents/Development Personal/DBS/dbscodingtest/src/main/webapp/somemoredatawhichshouldbehiddenusinglineclampbutisnot">
+							/Users/avishek.dey/Documents/Development Personal/DBS/dbscodingtest/src/main/webapp/somemoredatawhichshouldbehiddenusinglineclampbutisnot
+						</div>
+					</div>
+				</div>
+			</div>
+    	</div>
+	</div>
+	
+
+    
+    
+    <p><a href="dbscodingtest/api/fileservice/greet?name=Anupam">Test WS</a>
+</body>
+</html>
+ 
